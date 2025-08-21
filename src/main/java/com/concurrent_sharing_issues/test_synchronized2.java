@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class test_synchronized2 {
     public static void main(String[] args) throws InterruptedException {
-        Object lock = new Object();
         Account a = new Account(1000);
         Account b = new Account(1000);
         Thread t1 = new Thread(() -> {
@@ -48,7 +47,7 @@ class  Account {
     public void setMoney(int money) {
         this.money = money;
     }
-    public void transfer(Account target, int amount) {
+    public synchronized void transfer(Account target, int amount) {
         synchronized (Account.class) {
             if (this.money > amount) {
                 this.setMoney(this.getMoney() - amount);
