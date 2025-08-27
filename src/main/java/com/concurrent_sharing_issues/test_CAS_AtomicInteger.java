@@ -4,9 +4,14 @@ import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class test_CAS {
+
+
+/**
+ * 乐观锁 -CAS-原子数组
+ */
+public class test_CAS_AtomicInteger {
     public static void main(String[] args) throws InterruptedException {
-       Account_CAS account = new Account_CAS(10000);
+        Account_CAS account = new Account_CAS(10000);
         System.out.println(account.getBalance());
         List<Thread> list = new Vector<>();
         for (int i = 0; i < 1000; i++) {
