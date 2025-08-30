@@ -20,7 +20,7 @@ public class test_unsafe {
 
         long name_off = unsafe.objectFieldOffset(name);
         long age_off = unsafe.objectFieldOffset(age);
-
+        
         Person p = new Person();
 
         unsafe.compareAndSwapObject(p,name_off,null,"小红");
@@ -35,7 +35,7 @@ public class test_unsafe {
 
 @Data
 class Person{
-    private String name;
-    private int age;
+    volatile String name;
+    volatile int age;
 
 }
